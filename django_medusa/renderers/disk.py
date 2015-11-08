@@ -36,7 +36,7 @@ def _disk_render_path(args):
 
         resp = client.get(path)
         if resp.status_code != 200:
-            raise Exception
+            raise Exception("Path %s did not return status 200" % path)
         if needs_ext:
             mime = resp['Content-Type']
             mime = mime.split(';', 1)[0]
